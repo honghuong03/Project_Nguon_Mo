@@ -1,0 +1,23 @@
+name: Deploy Backend with FTP
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'backend/**'
+jobs:
+  deploy:
+    name: Upload backend to FTP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Sync backend to FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.FTP_HOST_BACK }}
+          port: ${{ secrets.FTP_PORT_BACK }}
+          username: ${{ secrets.FTP_USERNAME_BACK }}
+          password: ${{ secrets.FTP_PASSWORD_BACK }}
+          local-dir: backend
+          server-dir: ${{ secrets.FTP_REMOTE_PATH_BACK }}
