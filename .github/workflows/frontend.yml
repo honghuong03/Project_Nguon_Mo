@@ -1,0 +1,22 @@
+name: Deploy Frontend with FTP
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'frontend/**'
+jobs:
+  deploy:
+    name: Upload frontend to FTP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Sync frontend to FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.FTP_HOST_FRONT }}
+          username: ${{ secrets.FTP_USERNAME_FRONT }}
+          password: ${{ secrets.FTP_PASSWORD_FRONT }}
+          local-dir: frontend
+          server-dir: ${{ secrets.FTP_REMOTE_PATH_FRONT }}
