@@ -20,6 +20,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME_FRONT }}
           password: ${{ secrets.FTP_PASSWORD_FRONT }}
           local-dir: ./frontend/
-          server-dir: /
+          server-dir: ${{ secrets.FTP_REMOTE_PATH_FRONT }}
         
           
