@@ -16,7 +16,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.FTP_HOST_FRONT }}
-          port: 21
+          port: ${{ secrets.FTP_PORT_BACK }}
           username: ${{ secrets.FTP_USERNAME_FRONT }}
           password: ${{ secrets.FTP_PASSWORD_FRONT }}
           local-dir: ./frontend/
