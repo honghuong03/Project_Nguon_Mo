@@ -2,8 +2,6 @@ name: Deploy Backend with FTP
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - 'backend/**'
 jobs:
   deploy:
     name: Upload backend to FTP
