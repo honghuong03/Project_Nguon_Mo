@@ -17,5 +17,5 @@ jobs:
           port: ${{ secrets.FTP_PORT_BACK }}
           username: ${{ secrets.FTP_USERNAME_BACK }}
           password: ${{ secrets.FTP_PASSWORD_BACK }}
-          local-dir: lab01/lab01/bookstore/
+          local-dir: ./
           server-dir: ${{ secrets.FTP_REMOTE_PATH_BACK }}
